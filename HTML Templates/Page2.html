@@ -5,16 +5,78 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Style2.css">
+  <script>
+    function change1(str) {
+      var newStr = "";
+      for (var i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+      }
+      newStr += str;
+      return newStr;
+    }
+
+    function change2(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (i % 2 == 0)
+          newStr += str[i].toUpperCase();
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function change3(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == " ")
+          newStr += ".";
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function change4(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == " ")
+          newStr += ".";
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function check() {
+      var pass = document.getElementById("password").value;
+      var ori = pass;
+
+      /*pass = change1(pass);
+      pass = change2(pass);
+      pass = change3(pass);
+      pass = change4(pass);*/
+
+      /* document.writeln(pass); */
+      if (pass == "welcome") {
+        document.writeln("<h1>!!WELLDONE!!</h1><br><h2>Second Round Password: " + ori+"</h2>");
+      }
+      else {
+        document.getElementById("commen").innerHTML = "Wrong Password, Try Again";
+      }
+    }
+  </script>
 </head>
 
 <body>
   <div class="login">
     <h1>Login</h1>
-    <form method="post">
-      <input type="text" name="u" placeholder="Username" required="required" />
-      <input type="password" name="p" placeholder="Password" required="required" />
-      <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+    <form method="post" onsubmit="check()">
+      <input type="text" name="u" placeholder="Username">
+      <input id="password" type="password" name="p" placeholder="Password" required>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Sign in</button>
     </form>
+    <h2 id="commen">Guess the Password</h2>
   </div>
 </body>
 
