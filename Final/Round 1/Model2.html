@@ -1,6 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Level 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html {
       width: 100%;
@@ -100,7 +105,6 @@
       font-size: 12px;
       font-weight: 500;
       line-height: 1;
-      text-transform: uppercase;
       letter-spacing: 0.2em;
     }
 
@@ -158,6 +162,9 @@
       color: #4285f4;
     }
 
+    /* --------------------------------------------- */
+    /* Password is: PANI PURI */
+    /* --------------------------------------------- */
     .form-group .form-remember {
       font-size: 12px;
       font-weight: 400;
@@ -304,67 +311,55 @@
       </div>
       <div class="form-content">
         <form>
-          <div class="form-group"><label for="username">Username</label><input id="username" type="text" name="username"
-              required="required" /></div>
-          <div class="form-group"><label for="password">Password</label><input id="password" type="password"
-              name="password" required="required" /></div>
-          <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a
-              class="form-recovery" href="#">Forgot Password?</a></div>
-          <div class="form-group"><button type="submit">Log In</button></div>
-        </form>
-      </div>
-    </div>
-    <div class="form-panel two">
-      <div class="form-header">
-        <h1>Register Account</h1>
-      </div>
-      <div class="form-content">
-        <form>
-          <div class="form-group"><label for="username">Username</label><input id="username" type="text" name="username"
-              required="required" /></div>
-          <div class="form-group"><label for="password">Password</label><input id="password" type="password"
-              name="password" required="required" /></div>
-          <div class="form-group"><label for="cpassword">Confirm Password</label><input id="cpassword" type="password"
-              name="cpassword" required="required" /></div>
-          <div class="form-group"><label for="email">Email Address</label><input id="email" type="email" name="email"
-              required="required" /></div>
-          <div class="form-group"><button type="submit">Register</button></div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" required="required" />
+          </div>
+          <div class="form-group">
+            <label id="commen">Any Guesses?</label>
+          </div>
+          <div class="form-group">
+            <button onclick="check()">Log In</button>
+          </div>
         </form>
       </div>
     </div>
   </div>
-  <div class="pen-footer"><a href="https://www.behance.net/gallery/30478397/Login-Form-UI-Library" target="_blank"><i
-        class="material-icons">arrow_backward</i>View on Behance</a><a
-      href="https://github.com/andyhqtran/UI-Library/tree/master/Login%20Form" target="_blank">View on Github<i
-        class="material-icons">arrow_forward</i></a></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script>
-    $(document).ready(function () {
-      var panelOne = $('.form-panel.two').height(),
-        panelTwo = $('.form-panel.two')[0].scrollHeight;
+    var crypt = {
+      hash: "QWERTY",
+      decrypt: (cipher) => {
+        var decipher = CryptoJS.AES.decrypt(cipher, crypt.hash);
+        decipher = decipher.toString(CryptoJS.enc.Utf8);
+        return decipher;
+      }
+    };
 
-      $('.form-panel.two').not('.form-panel.two.active').on('click', function (e) {
-        e.preventDefault();
+    function decipher(cipher) {
+      var decipher = crypt.decrypt(cipher);
+      console.log(decipher);
+      return decipher;
+    }
 
-        $('.form-toggle').addClass('visible');
-        $('.form-panel.one').addClass('hidden');
-        $('.form-panel.two').addClass('active');
-        $('.form').animate({
-          'height': panelTwo
-        }, 200);
-      });
+    function check() {
+      var pass = document.getElementById("password").value;
 
-      $('.form-toggle').on('click', function (e) {
-        e.preventDefault();
-        $(this).removeClass('visible');
-        $('.form-panel.one').removeClass('hidden');
-        $('.form-panel.two').removeClass('active');
-        $('.form').animate({
-          'height': panelOne
-        }, 200);
-      });
-    });
+      if (pass == decipher("U2FsdGVkX182ot8DpXIkTu3JIBP0i29CO0XtdZP+W0A=")) {
+        document.writeln("<center><br><br><h1>!!WELLDONE!!</h1><br><h2>Second Round Password: "
+          + pass + "</h2></center>");
+      }
+      else {
+        document.getElementById("commen").innerHTML = "Try Using Inspect Tool";
+      }
+    }
   </script>
+
 </body>
 
 </html>
