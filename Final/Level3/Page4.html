@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Login Form Example</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" href="Style4.css">
+</head>
+
+<body>
+  <div class="login-form">
+    <form">
+      <h1>Login</h1>
+      <div class="content">
+        <div class="input-field">
+          <input type="email" placeholder="Email" autocomplete="nope">
+        </div>
+        <div class="input-field">
+          <input id="password" type="password" placeholder="Password" autocomplete="new-password" required>
+        </div>
+        <a id="commen" class="link">Guess the Password?</a>
+      </div>
+      <div class="action">
+        <button onclick="check()">Sign in</button>
+      </div>
+      </form>
+  </div>
+
+  <script>
+    function reverseString(str) {
+      var newStr = "";
+      for (var i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+      }
+      return newStr;
+    }
+
+
+    function changeUpperEven(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (i % 2 == 1 && !/[^a-zA-Z]/.test(str[i]))
+          newStr += str[i].toUpperCase();
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function changeUpperOdd(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (i % 2 == 0 && !/[^a-zA-Z]/.test(str[i]))
+          newStr += str[i].toUpperCase();
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function spaceTo(str, a) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == " ")
+          newStr += a;
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function switchCase(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (!/[^a-zA-Z]/.test(str[i])) {
+          if (str[i] == str[i].toLowerCase())
+            newStr += str[i].toUpperCase();
+          else
+            newStr += str[i].toLowerCase();
+        }
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function capitalize(str) {
+      var words = str.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(" ");
+    }
+
+    function switchCaseVowels(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (/[aeiouAEIOU]/.test(str[i])) {
+          if (str[i] == str[i].toLowerCase())
+            newStr += str[i].toUpperCase();
+          else
+            newStr += str[i].toLowerCase();
+        }
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function check() {
+      var typed = document.getElementById("password").value;
+      var ori = typed;
+
+      /* ================================================================= */
+      /* "typed" - The Password you type in page */
+      /* "password" - Is the Final Match */
+
+      /* "typed" will go through 3 functions that changes its string. */
+      /* Your goal is to find the ACTUAL PASSWORD using FINAL PASSWORD. */
+
+      /* Functions: */
+      /* typed = reverseString(typed); */
+      /* typed = changeUpperEven(typed); */
+      /* pass = changeUpperOdd(pass); */
+      /* pass = spaceTo(pass, "."); */
+      /* typed = switchCase(typed); */
+      /* typed = capitalize(typed); */
+      /* typed = switchCaseVowels(typed); */
+
+      /* Final Password: */
+      var password = "EmOcLeW";
+
+      /* ================================================================= */
+
+      /* console.log(typed); */
+      if (typed == password) {
+        document.getElementById("commen").innerHTML = "!!WELLDONE!!<br>Second Round Password: " + ori
+      }
+      else {
+        document.getElementById("commen").innerHTML = "Wrong Password, Try Again"
+      }
+    }
+  </script>
+
+</body>
+
+</html>
