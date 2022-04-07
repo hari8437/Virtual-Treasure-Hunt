@@ -33,8 +33,8 @@
     function change3(str) {
       var newStr = "";
       for (var i = 0; i < str.length; i++) {
-        if (str[i] == " ")
-          newStr += ".";
+        if (i % 2 == 1)
+          newStr += str[i].toUpperCase();
         else
           newStr += str[i];
       }
@@ -50,6 +50,36 @@
           newStr += str[i];
       }
       return newStr;
+    }
+
+    function change5(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == " ")
+          newStr += "@";
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function change6(str) {
+      var newStr="";
+      for(var i=0;i<str.lenght;i++){
+        if(str[i]==str[i].toLowerCase())
+          newStr+=str[i].toUpperCase();
+        else
+          newStr+=str[i].toLowerCase();
+      }
+      return newStr;
+    }
+
+    function change7(str) {
+      
+    }
+
+    function change8(str) {
+      
     }
 
     function check() {
@@ -68,6 +98,7 @@
         document.getElementById("commen").innerHTML = "Wrong Password, Try Again"
       }
     }
+    console.log(change6("heLLo WorLd"))
   </script>
 </head>
 
