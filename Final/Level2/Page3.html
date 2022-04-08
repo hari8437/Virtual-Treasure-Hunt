@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Level 2</title>
+  <link rel="stylesheet" href="Style3.css">
+</head>
+
+<body>
+  <div id="bg"></div>
+
+  <form>
+    <div class="form-field">
+      <h1>Log-in :</h1>
+    </div>
+    <div class="form-field">
+      <input type="email" placeholder="Email / Username">
+    </div>
+
+    <div class="form-field">
+      <input id="password" type="password" placeholder="Password" required>
+    </div>
+
+    <div class="form-field">
+      <a onclick="check()" class="btn">Log in</a>
+    </div>
+  </form>
+
+  <script>
+    function reverseString(str) {
+      var newStr = "";
+      for (var i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function replaceTo(str, a, b) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == a)
+          newStr += b;
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function capitalize(str) {
+      var words = str.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(" ");
+    }
+
+    function check() {
+      var typed = document.getElementById("password").value;
+      console.log(typed);
+      var ori = typed;
+
+      /* ================================================================= */
+      /* Instructions */
+      /* "typed" - The Password you type in page */
+      /* "password" - Is the Final Match */
+
+      /* "typed" will go through 3 functions that changes its string. */
+      /* Your goal is to find the ACTUAL PASSWORD using FINAL PASSWORD. */
+
+      /* Functions: */
+      typed = capitalize(typed);/* First letter of Each Word is UpperCase */
+      typed = replaceTo(typed, " ", "l"); /* Replace Second Argument with Third Argument */
+      typed = reverseString(typed); /* Reverse the String */
+      typed = replaceTo(typed, "e", "@"); /* Replace Second Argument with Third Argument */
+
+      /* typed = changeUpperEven(typed); *//* Change Even Index to UpperCase */
+      /* pass = changeUpperOdd(pass); *//* Change Odd Index to UpperCase */
+      /* pass = replaceTo(pass, "."); *//* Replace Second Argument with Third Argument */
+      /* typed = switchCase(typed); *//* Upper to LowerCase and Vice Versa */
+      /* typed = capitalize(typed); *//* First letter of Each Word is UpperCase */
+      /* typed = switchCaseVowels(typed); *//* Upper to LowerCase and Vice Versa for all Vovels */
+
+      /* Final Password: */
+      var password = "ta@p@Rl@doClp@@lSltaE";
+
+      /* ================================================================= */
+
+      if (typed == password) {
+        document.writeln("<center><h1><br><br>!!WELLDONE!!</h1><br><h2>Second Round Password: " + ori + "</h2><center>");
+      }
+      else {
+        window.alert("Wrong Password, Try Again");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

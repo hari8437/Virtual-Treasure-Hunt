@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
     #bg {
-      background-image: url('img/background.jpg');
       position: fixed;
       left: 0;
       top: 0;
@@ -41,14 +40,12 @@
     }
 
     form .form-field:nth-child(1)::before {
-      background-image: url(img/user-icon.png);
       width: 20px;
       height: 20px;
       top: 15px;
     }
 
     form .form-field:nth-child(2)::before {
-      background-image: url(img/lock-icon.png);
       width: 16px;
       height: 16px;
     }
@@ -65,6 +62,11 @@
       align-items: center;
       margin-bottom: 1rem;
       position: relative;
+    }
+
+    h1 {
+      width: 100%;
+      text-align: center;
     }
 
     form input {

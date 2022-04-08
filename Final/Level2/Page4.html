@@ -59,7 +59,7 @@
       return newStr;
     }
 
-    function spaceTo(str, a) {
+    function replaceTo(str, a) {
       var newStr = "";
       for (var i = 0; i < str.length; i++) {
         if (str[i] == " ")
@@ -113,6 +113,7 @@
       var ori = typed;
 
       /* ================================================================= */
+      /* Instructions */
       /* "typed" - The Password you type in page */
       /* "password" - Is the Final Match */
 
@@ -120,13 +121,13 @@
       /* Your goal is to find the ACTUAL PASSWORD using FINAL PASSWORD. */
 
       /* Functions: */
-      /* typed = reverseString(typed); */
-      /* typed = changeUpperEven(typed); */
-      /* pass = changeUpperOdd(pass); */
-      /* pass = spaceTo(pass, "."); */
-      /* typed = switchCase(typed); */
-      /* typed = capitalize(typed); */
-      /* typed = switchCaseVowels(typed); */
+      /* typed = reverseString(typed); *//* Reverse the String */
+      /* typed = changeUpperEven(typed); *//* Change Even Index to UpperCase */
+      /* pass = changeUpperOdd(pass); *//* Change Odd Index to UpperCase */
+      /* pass = replaceTo(pass, "."); *//* Replace Empty Spaces with */
+      /* typed = switchCase(typed); *//* Upper to LowerCase and Vice Versa */
+      /* typed = capitalize(typed); *//* First letter of Each Word is UpperCase */
+      /* typed = switchCaseVowels(typed); *//* Upper to LowerCase and Vice Versa for all Vovels */
 
       /* Final Password: */
       var password = "EmOcLeW";
