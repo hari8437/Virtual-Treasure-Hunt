@@ -104,3 +104,18 @@ a {
     border-radius: 0px;
   }
 }
+
+#win {
+  height:100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  display: none;
+}
+#win img {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
