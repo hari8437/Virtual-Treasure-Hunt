@@ -34,6 +34,29 @@
       return newStr;
     }
 
+
+    function changeUpperEven(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (i % 2 == 0 && !/[^a-zA-Z]/.test(str[i]))
+          newStr += str[i].toUpperCase();
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function changeUpperOdd(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (i % 2 == 1 && !/[^a-zA-Z]/.test(str[i]))
+          newStr += str[i].toUpperCase();
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
     function replaceTo(str, a, b) {
       var newStr = "";
       for (var i = 0; i < str.length; i++) {
@@ -45,9 +68,57 @@
       return newStr;
     }
 
+    function switchCase(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (!/[^a-zA-Z]/.test(str[i])) {
+          if (str[i] == str[i].toLowerCase())
+            newStr += str[i].toUpperCase();
+          else
+            newStr += str[i].toLowerCase();
+        }
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function capitalize(str) {
+      var words = str.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(" ");
+    }
+
+    function switchCaseVowels(str) {
+      var newStr = "";
+      for (var i = 0; i < str.length; i++) {
+        if (/[aeiouAEIOU]/.test(str[i])) {
+          if (str[i] == str[i].toLowerCase())
+            newStr += str[i].toUpperCase();
+          else
+            newStr += str[i].toLowerCase();
+        }
+        else
+          newStr += str[i];
+      }
+      return newStr;
+    }
+
+    function swapOddEven(str) {
+      var newStr = str.split("");
+      var tmp;
+      for (var i = 0; i < newStr.length - 1; i += 2) {
+        tmp = newStr[i];
+        newStr[i] = newStr[i + 1];
+        newStr[i + 1] = tmp;
+      }
+      return newStr.join("");
+    }
+
     function check() {
       var typed = document.getElementById("password").value;
-      console.log(typed);
       var ori = typed;
 
       /* ================================================================= */
