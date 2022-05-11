@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig', # Adds home app
-    'StrFn.apps.StrfnConfig' # Adds String Function Page
+    'StrFn.apps.StrfnConfig', # Adds String Function Page
+    'TryMultTms.apps.TrymulttmsConfig' # Try Multiple Times Page
 ]
 
 MIDDLEWARE = [
