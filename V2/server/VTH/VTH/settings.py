@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig', # Adds home app
-    'set1.apps.Set1Config', # Adds set1 app
+    'StrFn.apps.StrfnConfig' # Adds String Function Page
 ]
 
 MIDDLEWARE = [
