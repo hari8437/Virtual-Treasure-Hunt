@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig', # Adds home app
     'StrFn.apps.StrfnConfig', # Adds String Function Page
-    'TryMultTms.apps.TrymulttmsConfig' # Try Multiple Times Page
+    'TryMultipleTimes.apps.TrymultipletimesConfig' # Try Multiple Times Page
 ]
 
 MIDDLEWARE = [
