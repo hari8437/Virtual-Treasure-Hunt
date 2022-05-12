@@ -10,7 +10,7 @@
     body {
       font-family: "Open Sans", sans-serif;
       height: 100vh;
-      background: url("bg.jpg") 50% fixed;
+      background: url("https://images.unsplash.com/photo-1495476479092-6ece1898a101?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80") 50% fixed;
       background-size: cover;
     }
 
@@ -191,9 +191,10 @@
 <body>
   <div class="wrapper">
     <div>
-      <img src="hint.jpeg" alt="Never Give Up" />
+      <img src="https://pbs.twimg.com/media/EVijyMuU4AAiXti?format=jpg&name=small" alt="Never Give Up" />
     </div>
     <form class="login" method="post">
+      {% csrf_token %}
       <p class="title">Level 1</p>
       <input type="text" placeholder="Key" />
       <i class="fa fa-key"></i>

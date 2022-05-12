@@ -6,12 +6,14 @@ count = 0
 
 def index(request): # Render Page & Validation
   if(request.method == 'POST'):
-    #key = request.POST.get('key')
+    done = request.POST.get('done')
+    if(done=='true'):
+      return render(request, 'TryMultipleTimes.html') # TODO: Go to Next Page
     global count
     print('\nCount: ', count) # TODO: Remove tmp Line
     count+=1
     if(count > 10):
-      return render(request, 'index.html', {'res':'Well Done!!'}) # TODO: Go to Next Page
-    return render(request, 'index.html', {'res':'Wrong Password, Try Again'})
+      return render(request, 'TryMultipleTimesComplete.html')
+    return render(request, 'TryMultipleTimes.html', {'res':'Wrong Password, Try Again'})
   
-  return render(request, 'index.html')
+  return render(request, 'TryMultipleTimes.html')
