@@ -1,4 +1,4 @@
-#!/home/ganappriyan/VSCodeProjects/Virtual-Treasure-Hunt/V2/server/venv/bin/python3
+#!/home/ganappriyan/VSCodeProjects/Virtual-Treasure-Hunt/server/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
